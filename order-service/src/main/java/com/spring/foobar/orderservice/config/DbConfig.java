@@ -1,10 +1,12 @@
 package com.spring.foobar.orderservice.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
@@ -16,5 +18,10 @@ public class DbConfig {
     @ConfigurationProperties(prefix="spring.datasource.write")
     public DataSource writeDataSource(){
         return DataSourceBuilder.create().build();
+    }
+
+    @Bean
+    public JdbcTemplate jdbcTemplate(@Qualifier("writeDataSource") DataSource writeDataSource){
+        return new JdbcTemplate(writeDataSource);
     }
 }
