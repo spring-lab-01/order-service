@@ -21,7 +21,19 @@ public class DbConfig {
     }
 
     @Bean
-    public JdbcTemplate jdbcTemplate(@Qualifier("writeDataSource") DataSource writeDataSource){
+    public JdbcTemplate writeJdbcTemplate(@Qualifier("writeDataSource") DataSource writeDataSource){
         return new JdbcTemplate(writeDataSource);
     }
+
+    @Bean
+    @ConfigurationProperties(prefix="spring.datasource.read")
+    public DataSource readDataSource(){
+        return DataSourceBuilder.create().build();
+    }
+
+    @Bean
+    public JdbcTemplate readJdbcTemplate(@Qualifier("readDataSource") DataSource readDataSource){
+        return new JdbcTemplate(readDataSource);
+    }
+
 }
