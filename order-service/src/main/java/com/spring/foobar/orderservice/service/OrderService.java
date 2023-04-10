@@ -2,6 +2,7 @@ package com.spring.foobar.orderservice.service;
 
 import com.spring.foobar.orderservice.beans.Order;
 import com.spring.foobar.orderservice.beans.OrderStatus;
+import com.spring.foobar.orderservice.dao.OrderDao;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

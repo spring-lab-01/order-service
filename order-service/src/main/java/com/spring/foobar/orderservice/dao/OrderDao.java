@@ -1,4 +1,4 @@
-package com.spring.foobar.orderservice.service;
+package com.spring.foobar.orderservice.dao;
 
 import com.spring.foobar.orderservice.beans.Order;
 import com.spring.foobar.orderservice.beans.OrderMapper;

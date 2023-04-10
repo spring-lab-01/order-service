@@ -1,15 +1,12 @@
 package com.spring.foobar.orderservice.controller;
 
 import com.spring.foobar.orderservice.beans.Order;
-import com.spring.foobar.orderservice.beans.OrderStatus;
-import com.spring.foobar.orderservice.service.OrderDao;
 import com.spring.foobar.orderservice.service.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/orders")
